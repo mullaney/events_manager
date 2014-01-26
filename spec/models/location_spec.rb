@@ -7,6 +7,6 @@ describe Location do
   subject { location }
 
   it { should respond_to(:name) }
-  it { should respond_to(:description_url) }
+  it { should respond_to(:description) }
   it { should respond_to(:box_office_url) }
 end
