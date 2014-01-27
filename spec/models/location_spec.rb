@@ -20,6 +20,9 @@ describe Location do
   it { should respond_to(:map_url) }
   it { should respond_to(:embedded_map_code) }
 
+  it { should respond_to(:events) }
+  it { should respond_to(:event_groups) }
+
   it { should be_valid }
 
   describe ":name" do
