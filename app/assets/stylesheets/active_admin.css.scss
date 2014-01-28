@@ -1,3 +1,5 @@
+
+
 // SASS variable overrides must be declared before loading up Active Admin's styles.
 //
 // To view the variables that Active Admin provides, take a look at
@@ -15,3 +17,15 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+
+li input.just-datetime-picker-date {
+  display: inline;
+  width: 100px;
+  margin-right: 10px;
+}
+
+li input.just-datetime-picker-time {
+  width: 22px;
+  margin: 0 5px;
+}
