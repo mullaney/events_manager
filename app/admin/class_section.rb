@@ -16,7 +16,6 @@ ActiveAdmin.register ClassSection do
       f.has_many :class_dates, heading: false do |cd|
         cd.input :start_time, :as => :datetime_picker
         cd.input :end_time, :as => :datetime_picker
-        cd.actions
       end
     end
     f.actions
