@@ -2,6 +2,12 @@ ActiveAdmin.register ClassSection do
 
   permit_params :max_students, :min_students, :info, :class_course_id, :location_id
 
+  controller do
+    def permitted_params
+      params.permit!
+    end
+  end
+
   form do |f|
     f.inputs "Details" do
       f.input :class_course, member_label: :id_num
