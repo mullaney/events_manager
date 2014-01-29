@@ -1,12 +1,7 @@
 ActiveAdmin.register ClassSection do
 
-  permit_params :max_students, :min_students, :info, :class_course_id, :location_id
-
-    controller do
-      def permitted_params
-        params.permit!
-      end
-    end
+  permit_params :max_students, :min_students, :info, :class_course_id, :location_id, 
+                class_dates_attributes: [ :id, :class_section_id, :start_time, :end_time, :_destroy ]
 
   form do |f|
     f.inputs "Details" do
@@ -19,7 +14,7 @@ ActiveAdmin.register ClassSection do
       f.input :info, label: "Additional Information"
     end
     f.inputs "Dates" do
-      f.has_many :class_dates, heading: false do |cd|
+      f.has_many :class_dates, allow_destroy: true do |cd|
         cd.input :start_time, :as => :datetime_picker
         cd.input :end_time, :as => :datetime_picker
       end
@@ -48,8 +43,9 @@ ActiveAdmin.register ClassSection do
     end
 
     panel "Dates" do
-      attributes_table_for class_section.class_dates do
-        rows :start_time, :end_time
+      table_for class_section.class_dates do
+        column :start_time
+        column :end_time
       end
     end
     active_admin_comments
