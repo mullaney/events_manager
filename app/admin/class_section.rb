@@ -1,6 +1,6 @@
 ActiveAdmin.register ClassSection do
 
-  permit_params :max_students, :min_students, :info, :class_course_id, :location_id, 
+  permit_params :max_students, :min_students, :info, :class_course_id, :location_id, :cost_in_cents,
                 class_dates_attributes: [ :id, :class_section_id, :start_time, :end_time, :_destroy ]
 
   form do |f|
@@ -9,6 +9,7 @@ ActiveAdmin.register ClassSection do
       f.input :min_students, label: "Minunum Students"
       f.input :max_students, label: "Maxiumum Students"
       f.input :location
+      f.input :cost_in_cents, label: "Cost in cents", hint: "If you want the cost to be $200, enter 20000."
     end
     f.inputs do
       f.input :info, label: "Additional Information"
@@ -39,6 +40,7 @@ ActiveAdmin.register ClassSection do
       row :location
       row :min_students, label: "Minunum Students"
       row :max_students, label: "Maxiumum Students"
+      row :cost_in_dollars, label: "Cost"
       row :info, label: "Additional Information"
     end
 
