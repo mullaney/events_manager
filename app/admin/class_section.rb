@@ -41,6 +41,8 @@ ActiveAdmin.register ClassSection do
       row :min_students, label: "Minunum Students"
       row :max_students, label: "Maxiumum Students"
       row :cost_in_dollars, label: "Cost"
+      row :begins, label: "First class begins"
+      row :ends, label: "Last class ends"
       row :info, label: "Additional Information"
     end
 

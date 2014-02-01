@@ -30,6 +30,14 @@ class ClassSection < ActiveRecord::Base
     end
   end
 
+  def begins
+    self.class_dates.order('start_time ASC').limit(1).first.start_time
+  end
+
+  def ends
+    self.class_dates.order('end_time DESC').limit(1).first.end_time
+  end
+
   def max_students_must_be_greater_than_min_students
     if min_students > max_students
       errors.add(:max_students, "Max students must be greater than min students.")
