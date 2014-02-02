@@ -1,8 +1,6 @@
 class ClassDate < ActiveRecord::Base
   belongs_to :class_section
 
-  # scope :in_session, where(class_section.begins < Time.now) && where(class_secion.ends > Time.now)
-
   validates :start_time, :presence => true
   validates :end_time, :presence => true
   validate  :end_time_must_be_greater_than_start_time,

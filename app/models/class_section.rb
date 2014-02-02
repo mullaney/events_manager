@@ -10,6 +10,9 @@ class ClassSection < ActiveRecord::Base
   has_many :class_dates
   accepts_nested_attributes_for :class_dates, allow_destroy: true
 
+  scope :in_session, -> { joins(:class_section).where('? between class_sections.begins and class_sections.ends', Time.now) }
+  scope :registering, -> { joins(:class_section).where('? before class_sections.begins', Time.now) }
+
   def published?
     false
   end

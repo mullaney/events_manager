@@ -7,4 +7,5 @@ describe "Static pages" do
       expect(page).to have_content('Home') 
     end
   end
+
 end
